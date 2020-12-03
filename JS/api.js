@@ -8,7 +8,7 @@ fetch(url).then(function(response){
 }
 ).then(function(data){
     const imgArr = data.photos.photo;
-    shuffleAndDoubler(imgArr);
+    generateCards(imgArr);
 }
 //min felhantering.
 ).catch(function(error){
