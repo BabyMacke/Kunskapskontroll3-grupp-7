@@ -10,4 +10,4 @@ function renderMemoryFunc(cardsStorer){
         gridContainer.appendChild(memoryCard);
     }
 }
-renderMemoryFunc(obj);
+export {renderMemoryFunc};

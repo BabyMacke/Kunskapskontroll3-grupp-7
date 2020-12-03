@@ -1,3 +1,6 @@
+import {generateCards} from "./memory-cards.js";
+import {renderMemoryFunc} from "./renderfunc.js";
+
 const key = 'b9f8285a5b770fe763736df90c7f8be3';
 let searchTheme = 'Fruits';
 
@@ -8,9 +11,9 @@ fetch(url).then(function(response){
 }
 ).then(function(data){
     const imgArr = data.photos.photo;
-    generateCards(imgArr);
+    renderMemoryFunc(generateCards(imgArr));
 }
-//min felhantering.
+// Felhantering.
 ).catch(function(error){
     
     let errorMsg = document.createElement('h2');
