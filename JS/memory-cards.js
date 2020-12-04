@@ -5,9 +5,41 @@ function MemoryCard(_url, _id) {
     this.id = _id;
 }
 
-MemoryCard.prototype.backColor = 'black';
+/* MemoryCard.prototype.flip = function(matchCard, lockCards, hasClicked, firstCard, secondCard){
+    console.log('pepe')
+    // om disableCards är true, gå ut från funktionen direkt.
+    if(lockCards) return;
+    // om firstCard har klickats och är aktivt: gå ut ur funktionen.
+    if(firstCard == this) return;
 
-export function generateCards(resArr) {
+    //en class med en flip animation togglas när man klickar på korten
+    this.classList.toggle('flip')
+
+    if(!hasClicked){
+        hasClicked = true;
+        firstCard = this;
+       
+    } else{
+        secondCard = this;
+        hasClicked = false;
+        //kolla om korten matchar
+        matchCard();
+    }
+}
+
+MemoryCard.prototype.unFlip = function(lockCards, firstCard, secondCard){
+    // lås de andra korten tills korten har vänts tillbaka
+    lockCards = true;
+    // vänd tillbaka korten efter en liten stund
+    setTimeout(function(){
+        firstCard.classList.toggle('flip');
+        secondCard.classList.toggle('flip');
+
+        lockCards = false;
+    }, 1500);
+} */
+
+function generateCards(resArr) {
     // Skapa dubbletter 12 -> 24
     let doubledArr = doubler(resArr);
     // Loopar igenom doubledArr och skapar ett konstruktor objekt id och url
@@ -21,4 +53,4 @@ export function generateCards(resArr) {
     let shuffledArr = shuffleArr(imgsData);
     return shuffledArr;    
 }
-
+export {MemoryCard, generateCards};

@@ -1,1 +1,2 @@
-import {renderMemoryFunc} from "./renderfunc.js";
+import {x} from "./api.js";
+
