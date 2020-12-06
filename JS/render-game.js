@@ -1,4 +1,5 @@
-import { MemoryCard } from "./memory-cards.js";
+import {MemoryCard} from "./memory-cards.js";
+import {fetchApi} from "./api.js";
 //en variabel som kollar om användaren har klickat eller inte
 let hasClicked = false;
 let lockCards = false;
@@ -36,7 +37,9 @@ function matchCard(protoInstance){
        // ge ett poäng till poängräknaren
        points++;
        let pointCounter = document.querySelector('.points');
-       pointCounter.innerText = `Score: ${points}`
+       pointCounter.innerText = `Score: ${points}`;
+       if (points === 12) endGame();
+       console.log(points);
     } else{
         protoInstance.unFlip(lockCards, firstCard, secondCard);
     }
@@ -64,8 +67,8 @@ function removeCards(cardOne, cardTwo, protoInstance){
     });
     //gör att korten inte längre är synliga efter 1 sek
     setTimeout(function(){
-     a.style.visibility = "hidden"
-     b.style.visibility = "hidden"
+     cardOne.style.visibility = "hidden"
+     cardTwo.style.visibility = "hidden"
     }, 1000);
 }
 
@@ -92,6 +95,16 @@ function renderMemoryFunc(cardsStorer){
        })
                  
     }
+}
+function endGame(){
+    console.log(points);
+    let cardContainer = document.querySelector('.grid-container');
+    cardContainer.innerHTML = '';
+    let h2 = document.querySelector('.points');
+    points = 0;
+    h2.textContent = `Score: ${points}`
+    console.log(points);
+    fetchApi();
 }
 
 export {renderMemoryFunc, points};

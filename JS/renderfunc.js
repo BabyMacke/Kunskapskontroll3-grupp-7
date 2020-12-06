@@ -1,5 +1,5 @@
-import { matchCard, lockCards, hasClicked, firstCard, secondCard } from "./game.js";
-import { MemoryCard } from "./memory-cards.js";
+import {matchCard, lockCards, hasClicked, firstCard, secondCard} from "./game.js";
+import {MemoryCard} from "./memory-cards.js";
 
 
 let cardsArr = [];
