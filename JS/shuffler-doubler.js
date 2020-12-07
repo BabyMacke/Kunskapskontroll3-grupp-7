@@ -1,5 +1,6 @@
+//här skapas en funktion som shufflar korten och randomerar dem.
 function shuffleArr(arr) {
-    var currentIndex = arr.length, temporaryValue, randomIndex;
+    let currentIndex = arr.length, temporaryValue, randomIndex;
     // Medans det finns element att shuffla
     while (0 !== currentIndex) {
       // Välj ett element som är kvar
@@ -13,6 +14,7 @@ function shuffleArr(arr) {
     return arr;
 }
 
+//en funktion ska skapa dubbletter.
 function doubler(arr) {
     // Skapa dubbletter från 12 till 24, båda får samma ID
     let doubledArr = [];
@@ -22,5 +24,4 @@ function doubler(arr) {
     }
     return doubledArr;
 }
-
 export {shuffleArr, doubler};

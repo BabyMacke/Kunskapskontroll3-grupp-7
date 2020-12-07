@@ -1,44 +1,13 @@
+// här importerar vi dessa funktioner för att kunna använda dem i memory-cards.js
 import {shuffleArr, doubler} from "./shuffler-doubler.js";
 
+//Här Skapar vi en memoryCard konstruktor.
 function MemoryCard(_url, _id) {
     this.url = _url;
     this.id = _id;
 }
 
-/* MemoryCard.prototype.flip = function(matchCard, lockCards, hasClicked, firstCard, secondCard){
-    console.log('pepe')
-    // om disableCards är true, gå ut från funktionen direkt.
-    if(lockCards) return;
-    // om firstCard har klickats och är aktivt: gå ut ur funktionen.
-    if(firstCard == this) return;
-
-    //en class med en flip animation togglas när man klickar på korten
-    this.classList.toggle('flip')
-
-    if(!hasClicked){
-        hasClicked = true;
-        firstCard = this;
-       
-    } else{
-        secondCard = this;
-        hasClicked = false;
-        //kolla om korten matchar
-        matchCard();
-    }
-}
-
-MemoryCard.prototype.unFlip = function(lockCards, firstCard, secondCard){
-    // lås de andra korten tills korten har vänts tillbaka
-    lockCards = true;
-    // vänd tillbaka korten efter en liten stund
-    setTimeout(function(){
-        firstCard.classList.toggle('flip');
-        secondCard.classList.toggle('flip');
-
-        lockCards = false;
-    }, 1500);
-} */
-
+//Här skapar vi en funktion som genererar memoryCard korten.
 function generateCards(resArr) {
     // Skapa dubbletter 12 -> 24
     let doubledArr = doubler(resArr);
