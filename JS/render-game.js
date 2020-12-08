@@ -11,6 +11,8 @@ let firstCard, secondCard;
 
 //en varibel som sparar poäng
 let points = 0;
+let pointCounter = document.querySelector('.points');
+pointCounter.innerText = `Score: ${points}`;
 
 //Här skapar vi en metod i prototypen som flip:ar korten
 MemoryCard.prototype.flip = function(cardElement, protoInstance){
@@ -37,8 +39,8 @@ function matchCard(protoInstance){
        removeCards(firstCard, secondCard, protoInstance);
        // ge ett poäng till poängräknaren
        points++;
-       let pointCounter = document.querySelector('.points');
        pointCounter.innerText = `Score: ${points}`;
+       
        if (points === 12) endGame();
     } else{
         protoInstance.unFlip(lockCards, firstCard, secondCard);
@@ -81,7 +83,7 @@ function renderMemoryFunc(cardsStorer){
         let frontFace = document.createElement('img');
         let backFace = document.createElement('img');
         frontFace.src = cardsStorer[i].url;
-        backFace.src = "img/pepe.png"
+        backFace.src = "img/apple.png"
         frontFace.alt = "card img"
         backFace.alt = "pepe img"
         cardContainer.setAttribute('pair-id', cardsStorer[i].id);
@@ -99,11 +101,14 @@ function renderMemoryFunc(cardsStorer){
 
 //här skapas en funktion som ska resetta spelet när spelet är slut.
 function endGame(){
+    setTimeout(() => {
     let cardContainer = document.querySelector('.grid-container');
     cardContainer.innerHTML = '';
     let h2 = document.querySelector('.points');
     points = 0;
     h2.textContent = `Score: ${points}`
     fetchApi();
+    }, 1000);
+    
 }
 export {renderMemoryFunc, points};
